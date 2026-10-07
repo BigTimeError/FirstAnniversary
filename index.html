@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Für dich ❤️</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f8f3ef;
+        color: #3b3030;
+        font-family: Georgia, serif;
+    }
+
+    .login-container {
+        width: min(90%, 420px);
+        padding: 50px 35px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(120, 80, 80, 0.15);
+        border-radius: 16px;
+        box-shadow: 0 15px 50px rgba(60, 40, 40, 0.12);
+    }
+
+    .heart {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        margin: 0 0 10px;
+        font-size: 32px;
+        font-weight: normal;
+    }
+
+    p {
+        margin-bottom: 30px;
+        color: #766666;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid #d8caca;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    input:focus {
+        border-color: #a98282;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 14px;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        background: #8f6262;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #765050;
+    }
+
+    #error {
+        display: none;
+        margin-top: 15px;
+        color: #a34d4d;
+    }
+</style>
+
+</head>
+
+<body>
+
+<main class="login-container">
+    <div class="heart">❤️</div>
+
+    <h1>Passwort bitte</h1>
+
+    <p>
+        Du woasch gonz genau wos.
+    </p>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Unser Passwort"
+        autocomplete="off"
+    >
+
+    <button onclick="checkPassword()">
+        Öffnen ❤️
+    </button>
+
+    <div id="error">
+        Das Passwort stimmt leider nicht. ❤️
+    </div>
+</main>
+
+<script>
+    function checkPassword() {
+        const password = document.getElementById("password").value;
+        const error = document.getElementById("error");
+
+        if (password === "Tiosls") {
+            window.location.href = "website.html";
+        } else {
+            error.style.display = "block";
+        }
+    }
+
+    document.getElementById("password").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkPassword();
+        }
+    });
+</script>
+
+</body>
+</html>

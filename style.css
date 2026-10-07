@@ -1,0 +1,1077 @@
+/* =========================================================
+   UNSER ERSTES JAHR — Anniversary Website
+   ========================================================= */
+
+:root {
+    --cream: #fbf7f2;
+    --paper: #fffdf9;
+    --rose: #b85c6b;
+    --rose-dark: #7e3342;
+    --burgundy: #4b202b;
+    --text: #38282b;
+    --muted: #806c70;
+    --line: #e8d9d5;
+    --shadow: 0 20px 60px rgba(75, 32, 43, 0.12);
+
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Inter", Arial, sans-serif;
+    --script: "Parisienne", cursive;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background: var(--cream);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+::selection {
+    background: #e9c4ca;
+    color: var(--burgundy);
+}
+
+/* ---------- General ---------- */
+
+.section {
+    position: relative;
+    padding: 120px 24px;
+}
+
+.section-inner {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+}
+
+.section-inner.narrow {
+    width: min(760px, 100%);
+}
+
+.section-number {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--rose);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.section-heading {
+    margin-bottom: 70px;
+}
+
+.section-heading h2,
+.intro-section h2,
+.numbers-section h2 {
+    margin: 0;
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 500;
+    line-height: 0.98;
+}
+
+.section-heading > p:last-child {
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+.centered {
+    text-align: center;
+}
+
+.small-cursive {
+    margin: 0 0 8px;
+    color: var(--rose);
+    font-family: var(--script);
+    font-size: 1.8rem;
+}
+
+.divider {
+    width: 70px;
+    height: 1px;
+    margin: 45px auto;
+    background: var(--rose);
+    opacity: 0.55;
+}
+
+/* ---------- Background hearts ---------- */
+
+.heart-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -30px;
+    color: var(--rose);
+    opacity: 0.08;
+    font-size: 15px;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+    }
+    to {
+        transform: translateY(-115vh) rotate(25deg);
+    }
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 40px 24px;
+    overflow: hidden;
+    color: #fff;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(130, 60, 75, 0.5), transparent 45%),
+        linear-gradient(135deg, #29141b 0%, #5b2734 48%, #2b171d 100%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 6%;
+    border: 1px solid rgba(255,255,255,0.15);
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 50%, transparent 0 25%, rgba(0,0,0,0.2) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 18px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+.hero h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(4rem, 11vw, 8.5rem);
+    font-weight: 400;
+    line-height: 0.82;
+    letter-spacing: -0.035em;
+}
+
+.hero-date {
+    margin: 35px 0 10px;
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    letter-spacing: 0.12em;
+}
+
+.hero-subtitle {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    opacity: 0.78;
+}
+
+.scroll-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 50px;
+    padding: 12px 18px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-button:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-3px);
+}
+
+.scroll-button .arrow {
+    font-size: 1.1rem;
+    animation: bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+/* ---------- Intro ---------- */
+
+.intro-section {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background: var(--cream);
+}
+
+.intro-section h2 {
+    max-width: 680px;
+}
+
+.intro-section .lead {
+    margin-top: 40px;
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    line-height: 1.5;
+}
+
+.intro-section p:not(.lead):not(.signature) {
+    color: var(--muted);
+    font-size: 0.98rem;
+}
+
+.signature {
+    margin-top: 45px;
+    color: var(--rose) !important;
+    font-family: var(--script);
+    font-size: 2rem !important;
+}
+
+/* ---------- Timeline ---------- */
+
+.timeline-section {
+    background: #f5eee9;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: var(--line);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 0 55px 90px 0;
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: 50%;
+    padding: 0 0 90px 55px;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 30px;
+    right: -17px;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--cream);
+    font-size: 0.8rem;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    right: auto;
+    left: -17px;
+}
+
+.timeline-card {
+    overflow: hidden;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+}
+
+.placeholder-photo,
+.memory-photo {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: #a58f94;
+    background:
+        linear-gradient(135deg, rgba(184,92,107,0.12), rgba(75,32,43,0.05)),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 12px,
+            rgba(126,51,66,0.035) 12px,
+            rgba(126,51,66,0.035) 13px
+        );
+}
+
+.placeholder-photo {
+    aspect-ratio: 4 / 3;
+}
+
+.placeholder-photo::after,
+.memory-photo::after {
+    content: "♡";
+    position: absolute;
+    font-family: var(--serif);
+    font-size: 4rem;
+    opacity: 0.15;
+}
+
+.placeholder-photo span,
+.memory-photo span {
+    position: relative;
+    z-index: 1;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    letter-spacing: 0.12em;
+}
+
+.placeholder-photo small,
+.memory-photo small {
+    position: absolute;
+    bottom: 13px;
+    z-index: 1;
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+}
+
+.timeline-content {
+    padding: 27px 30px 32px;
+}
+
+.timeline-date {
+    margin: 0 0 5px;
+    color: var(--rose);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.timeline-content h3 {
+    margin: 0;
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.timeline-content p:last-child {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.75;
+}
+
+/* ---------- Memories ---------- */
+
+.memories-section {
+    background: var(--cream);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+    gap: 18px;
+}
+
+.memory-photo {
+    min-height: 250px;
+}
+
+.memory-photo.large {
+    grid-column: span 2;
+}
+
+.memory-photo.tall {
+    grid-row: span 2;
+}
+
+.memory-photo.wide {
+    grid-column: span 2;
+}
+
+.memory-photo:hover {
+    transform: translateY(-3px);
+    transition: transform 0.4s ease;
+}
+
+/* ---------- Letter ---------- */
+
+.letter-section {
+    background: #eee2db;
+}
+
+.letter-section .section-heading {
+    margin-bottom: 50px;
+}
+
+.letter {
+    position: relative;
+    padding: 70px clamp(28px, 8vw, 85px);
+    background:
+        linear-gradient(rgba(255,253,249,0.97), rgba(255,253,249,0.97)),
+        repeating-linear-gradient(
+            transparent 0,
+            transparent 31px,
+            rgba(184,92,107,0.08) 32px
+        );
+    box-shadow: var(--shadow);
+}
+
+.letter::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 1px solid rgba(184,92,107,0.2);
+    pointer-events: none;
+}
+
+.letter-decoration {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    color: var(--rose);
+    font-size: 1rem;
+    transform: translateX(-50%);
+}
+
+.letter-greeting {
+    margin-top: 0;
+    color: var(--burgundy);
+    font-family: var(--script);
+    font-size: 2.2rem;
+}
+
+.letter p:not(.letter-greeting):not(.letter-signature) {
+    position: relative;
+    margin: 0 0 22px;
+    color: #564447;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    line-height: 1.7;
+}
+
+.letter-signature {
+    margin: 40px 0 0;
+    color: var(--rose);
+    font-family: var(--script);
+    font-size: 2rem;
+    text-align: right;
+}
+
+/* ---------- Numbers ---------- */
+
+.numbers-section {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background: var(--burgundy);
+    color: #fff;
+}
+
+.numbers-section .section-number {
+    color: #e6abb4;
+}
+
+.number-line {
+    margin-top: 25px;
+    font-family: var(--serif);
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 400;
+    line-height: 0.8;
+}
+
+.numbers-section .number-line + p {
+    margin: 12px 0 0;
+    color: #d8bdc2;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.numbers-section h2 {
+    color: #fff;
+}
+
+/* ---------- Contract ---------- */
+
+.contract-section {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(184,92,107,0.1), transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(75,32,43,0.08), transparent 30%),
+        #e9ddd6;
+}
+
+.contract-wrapper {
+    width: min(920px, 100%);
+}
+
+.contract {
+    position: relative;
+    padding: clamp(35px, 6vw, 75px);
+    overflow: hidden;
+    background: var(--paper);
+    border: 1px solid #d9c9c2;
+    box-shadow: 0 30px 90px rgba(75,32,43,0.16);
+}
+
+.contract::before {
+    content: "";
+    position: absolute;
+    inset: 13px;
+    border: 1px solid #dfd1cb;
+    pointer-events: none;
+}
+
+.contract-stamp {
+    position: absolute;
+    top: 35px;
+    right: 45px;
+    width: 80px;
+    height: 80px;
+    display: grid;
+    place-items: center;
+    border: 2px solid rgba(184,92,107,0.45);
+    border-radius: 50%;
+    color: var(--rose);
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    line-height: 0.8;
+    text-align: center;
+    transform: rotate(12deg);
+    opacity: 0.7;
+}
+
+.contract-stamp span {
+    font-family: var(--sans);
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+}
+
+.contract-label {
+    margin: 0 0 8px;
+    color: var(--rose);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-align: center;
+}
+
+.contract h2 {
+    margin: 0;
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 8vw, 6.2rem);
+    font-weight: 500;
+    line-height: 0.9;
+    text-align: center;
+}
+
+.contract-subtitle {
+    margin: 15px 0 0;
+    color: var(--muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.contract-rule {
+    width: 100%;
+    height: 1px;
+    margin: 45px 0;
+    background: var(--line);
+}
+
+.contract-parties {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.contract-parties > div {
+    display: grid;
+    gap: 3px;
+}
+
+.contract-parties span:not(.heart-between) {
+    color: var(--muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.contract-parties strong {
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.heart-between {
+    color: var(--rose);
+    font-size: 1.5rem;
+}
+
+.contract-text {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.contract-text h3 {
+    margin: 30px 0 5px;
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: 1.5rem;
+}
+
+.contract-text p,
+.contract-text li {
+    color: var(--muted);
+    font-size: 0.84rem;
+}
+
+.contract-text ul {
+    padding-left: 20px;
+}
+
+.contract-question {
+    position: relative;
+    margin: 55px auto 0;
+    padding: 35px 20px 45px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+}
+
+.contract-question > p:first-child {
+    margin: 0 0 5px;
+    color: var(--muted);
+    font-size: 0.76rem;
+}
+
+.contract-question h3 {
+    margin: 0;
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 5vw, 2.7rem);
+    font-weight: 500;
+}
+
+.contract-buttons {
+    position: relative;
+    width: min(600px, 100%);
+    height: 90px;
+    margin: 25px auto 0;
+}
+
+.yes-button,
+.no-button {
+    position: absolute;
+    top: 20px;
+    padding: 13px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.yes-button {
+    left: 50%;
+    z-index: 3;
+    border: 1px solid var(--rose-dark);
+    color: #fff;
+    background: var(--rose);
+    box-shadow: 0 10px 25px rgba(184,92,107,0.25);
+    transform: translateX(calc(-100% - 10px));
+}
+
+.yes-button:hover {
+    box-shadow: 0 15px 35px rgba(184,92,107,0.35);
+    transform: translateX(calc(-100% - 10px)) translateY(-2px);
+}
+
+.no-button {
+    left: 50%;
+    z-index: 2;
+    border: 1px solid #d6c5c0;
+    color: var(--muted);
+    background: #fff;
+    transform: translateX(10px);
+}
+
+.no-button:hover {
+    box-shadow: 0 5px 18px rgba(75,32,43,0.08);
+}
+
+.contract-hint {
+    min-height: 25px;
+    margin: 0;
+    color: var(--rose);
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-style: italic;
+}
+
+.contract-signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 55px;
+}
+
+.contract-signatures span {
+    color: var(--muted);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.signature-line {
+    height: 1px;
+    margin-top: 35px;
+    background: #cbb9b2;
+}
+
+/* ---------- Final ---------- */
+
+.final-section {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: #fff;
+    background:
+        radial-gradient(circle at 50% 50%, #713642 0%, #3c1b24 50%, #1e0d12 100%);
+}
+
+.final-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+.final-section.active .final-content {
+    animation: finalReveal 1.4s ease forwards;
+}
+
+@keyframes finalReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.final-content h2 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(4rem, 11vw, 8rem);
+    font-weight: 400;
+    line-height: 0.85;
+}
+
+.final-date {
+    margin: 35px 0 0;
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    letter-spacing: 0.12em;
+}
+
+.final-message {
+    margin: 30px auto 0;
+    color: #e5cdd1;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    line-height: 1.45;
+}
+
+.big-heart {
+    margin: 45px 0 10px;
+    color: #e8a8b2;
+    font-size: 3.5rem;
+    animation: heartbeat 1.4s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.08); }
+}
+
+.final-signature {
+    margin: 0;
+    font-family: var(--script);
+    font-size: 2.3rem;
+}
+
+.final-heart {
+    position: absolute;
+    bottom: -50px;
+    color: rgba(255,255,255,0.18);
+    animation: finalHeartUp linear forwards;
+}
+
+@keyframes finalHeartUp {
+    to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 30px 20px;
+    color: #bfaeb2;
+    background: #1e0d12;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+}
+
+/* ---------- Reveal ---------- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Toast ---------- */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    z-index: 100;
+    max-width: calc(100vw - 40px);
+    padding: 12px 18px;
+    border-radius: 100px;
+    color: #fff;
+    background: var(--burgundy);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    font-size: 0.78rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 700px) {
+    .section {
+        padding: 90px 18px;
+    }
+
+    .hero::before {
+        inset: 3%;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 17vw, 6rem);
+    }
+
+    .hero-date {
+        font-size: 1rem;
+    }
+
+    .hero-subtitle {
+        max-width: 330px;
+        font-size: 0.82rem;
+    }
+
+    .timeline::before {
+        left: 16px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 0 55px 45px;
+    }
+
+    .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        top: 22px;
+        left: 0;
+        right: auto;
+        width: 32px;
+        height: 32px;
+    }
+
+    .timeline-content {
+        padding: 22px;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 180px;
+        gap: 10px;
+    }
+
+    .memory-photo {
+        min-height: 180px;
+    }
+
+    .memory-photo.large,
+    .memory-photo.wide {
+        grid-column: span 2;
+    }
+
+    .memory-photo.tall {
+        grid-row: span 1;
+    }
+
+    .letter {
+        padding: 60px 27px;
+    }
+
+    .letter p:not(.letter-greeting):not(.letter-signature) {
+        font-size: 1.1rem;
+    }
+
+    .contract {
+        padding: 55px 25px 40px;
+    }
+
+    .contract::before {
+        inset: 8px;
+    }
+
+    .contract-stamp {
+        top: 25px;
+        right: 25px;
+        width: 62px;
+        height: 62px;
+        font-size: 1rem;
+    }
+
+    .contract-parties {
+        gap: 15px;
+    }
+
+    .contract-parties strong {
+        font-size: 1.1rem;
+    }
+
+    .contract-buttons {
+        width: 100%;
+        height: 145px;
+    }
+
+    .yes-button,
+    .no-button {
+        top: 25px;
+    }
+
+    .contract-signatures {
+        gap: 25px;
+    }
+
+    .final-content h2 {
+        font-size: clamp(3.5rem, 16vw, 6rem);
+    }
+
+    .final-message {
+        font-size: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
